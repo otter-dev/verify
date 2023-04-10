@@ -1,7 +1,12 @@
 [package]
 name = "otter-solana-verify"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2021"
+license = "MIT"
+description = "OtterSec Solana formal verification macros"
+homepage = "https://osec.io"
+readme = "README.md"
+repository = "https://github.com/otter-dev/verify"
 
 [lib]
 proc-macro = true
