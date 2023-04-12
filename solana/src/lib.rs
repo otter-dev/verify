@@ -3,7 +3,7 @@
 //! ## Invariants
 //!
 //! Invariants are properties that should always be true.  For example, the balance of a token account should never be negative. There are two types of invariants in the Solana programs: `account invariants` and `instruction invariants`.
-//!  
+//!
 //! ### Instruction Invariants
 //!   An instruction invariant specifies sufficient conditions for an instruction to succeed (or fail). These are specified as `succeeds_if` or `errors_if` macro annotations on the instruction handler.
 //!   - `succeeds_if` - The instruction should succeed if and only if the given condition is true.
@@ -15,7 +15,7 @@
 //!    ...
 //! }
 //! ```
-//! 
+//!
 //!   - `errors_if` - The instruction should fail if and only if the given condition is true.
 //!   ```rust
 //! #[errors_if(
@@ -27,10 +27,10 @@
 //!    ```
 //!
 //! ### Account Invariants
-//! The other type of invariant is an Account Invariant. 
-//! This invariant describes some property of an account that should always hold. 
+//! The other type of invariant is an Account Invariant.
+//! This invariant describes some property of an account that should always hold.
 //! We use the `invariant` macro to specify these invariants.
-//! 
+//!
 //! - `invariant` - The account invariant should hold if and only if the given condition is true.
 //! For example, the balance of a token account should never be negative.
 //!
@@ -44,10 +44,8 @@
 //!     }
 //! ```
 
-
 extern crate proc_macro;
 use proc_macro::TokenStream;
-
 
 /// The instruction should succeed if and only if the given condition is true.
 #[proc_macro_attribute]
@@ -64,6 +62,18 @@ pub fn errors_if(_args: TokenStream, input: TokenStream) -> TokenStream {
 /// The account invariant should hold if and only if the given condition is true.
 #[proc_macro_attribute]
 pub fn invariant(_args: TokenStream, input: TokenStream) -> TokenStream {
+    input
+}
+
+/// Ignore the following block of code for verification
+#[proc_macro_attribute]
+pub fn verify_ignore(_args: TokenStream, input: TokenStream) -> TokenStream {
+    input
+}
+
+/// The account has a constraint defined
+#[proc_macro_attribute]
+pub fn has_constraint(_args: TokenStream, input: TokenStream) -> TokenStream {
     input
 }
 
