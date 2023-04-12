@@ -2,6 +2,22 @@
 
 Formal verification is the process of using a formal specification to verify the correctness of a system.
 
+## Usage
+
+Otter formal verification for Solana only works on rust code that is using the nightly toolchain. So create a new file `rust-toolchain` in the root of your project with the following contents:
+
+```toml
+[toolchain]
+channel = "nightly"
+```
+
+Then, add the `otter-solana-verify` to your `Cargo.toml` dependencies:
+
+```bash
+cargo add otter-solana-verify
+```
+
+
 ## Invariants
 
 Invariants are properties that should always be true.  For example, the balance of a token account should never be negative. There are two types of invariants in the Solana programs: `account invariants` and `instruction invariants`.
