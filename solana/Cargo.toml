@@ -1,6 +1,6 @@
 [package]
 name = "otter-solana-verify"
-version = "1.0.1"
+version = "1.0.2"
 edition = "2021"
 license = "MIT"
 description = "OtterSec Solana formal verification macros"
@@ -10,3 +10,6 @@ repository = "https://github.com/otter-dev/verify"
 
 [lib]
 proc-macro = true
+
+[dependencies]
+quote = "1.0.23"

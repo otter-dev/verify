@@ -46,6 +46,7 @@
 
 extern crate proc_macro;
 use proc_macro::TokenStream;
+use quote::quote;
 
 /// The instruction should succeed if and only if the given condition is true.
 #[proc_macro_attribute]
@@ -78,6 +79,6 @@ pub fn has_constraint(_args: TokenStream, input: TokenStream) -> TokenStream {
 }
 
 #[proc_macro_derive(Arbitrary)]
-pub fn derive_arbitrary(item: TokenStream) -> TokenStream {
-    item
+pub fn derive_arbitrary(_item: TokenStream) -> TokenStream {
+    (quote! {}).into()
 }
